@@ -1,0 +1,34 @@
+package jdbcSpring;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
+public class jdbcSpringMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ApplicationContext ctx=new ClassPathXmlApplicationContext("jdbcBean.xml");
+		//DriverManagerDataSource obj=(DriverManagerDataSource) ctx.getBean("ds");
+		EmployeeDao dao=(EmployeeDao)ctx.getBean("edao"); 
+		 Employee2 emp=new Employee2();
+		
+		/* emp.setEname("Hulash kumar");
+		 emp.setEmpid("1010");
+		 emp.setDept("Testing");
+		 emp.setDesg("tester");
+		 emp.setEmail("sh@gmail.com");*/
+		emp.setEname("Praveen kumar");
+		emp.setDept("Devloper");
+		emp.setEmpid("1010");
+		 
+		 
+		    //int status=dao.saveEmployee(emp);
+		    int status=dao.updateEmployee(emp);
+		    System.out.println(status); 
+		   // System.out.println("Records inserted");
+		    System.out.println("Records updated");
+		
+	}
+
+}

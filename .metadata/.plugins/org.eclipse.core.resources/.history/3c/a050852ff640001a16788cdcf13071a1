@@ -1,0 +1,33 @@
+package jdbc;
+
+import java.io.FileInputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.Properties;
+import java.util.Scanner;
+
+public class RBFConcept {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			FileInputStream fis=new FileInputStream("d://ctsdb.properties");
+			Properties p=new Properties();
+			p.load(fis);
+			String dname=(String) p.get("Dname");
+			String url=(String) p.get("URL");
+			String username=(String) p.get("Uname");
+			String password=(String) p.get("pwd");
+			Scanner sc=new Scanner(System.in);
+			System.out.println("Enter the table name ");
+			String tablename=sc.next();
+			
+			Class.forName(dname);
+			System.out.println("Drivers loaded");
+			Connection con=DriverManager.getConnection(url,username,password);
+			System.out.println("Connection created");
+		}
+		catch(Exception e){}
+	}
+
+}

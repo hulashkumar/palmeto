@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+class BikeRace {
+    public static int countDigits(int dist) {
+        int counter=0;
+        while (dist>0) {
+            dist /= 10;
+            counter++;
+        }
+        return counter;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int dist = sc.nextInt();
+        int bonus=0;
+        int prodOdd = 1;
+        int prodEven = 1;
+        int currDigit = 0;
+
+        if (dist < 0) {
+            System.out.printf("Invalid Input ");
+            System.exit(0);
+        }
+
+        int counter = countDigits(dist);
+        int lol = counter;
+        //System.out.println("Number of Digits are " + counter);
+
+        for (int i = 0; i < lol; i++) {
+
+            //System.out.println("Current Dist " + dist);
+
+            currDigit = dist % 10;
+            //System.out.println("Current Digit " + currDigit);
+
+            if (counter % 2 == 0){
+                prodEven *= currDigit;
+                //System.out.println("Current ProdEven "+prodEven);
+            }
+            else {
+                prodOdd *= currDigit;
+                //System.out.println("Current ProdOdd " +prodEven);
+            }
+
+            dist /= 10;
+            counter--;
+        }
+
+        if (prodOdd == prodEven)
+            bonus = 2 * prodOdd;
+        else
+            bonus = prodOdd > prodEven ? prodOdd : prodEven;
+
+        System.out.println("The bonus is "+bonus);
+    }
+}

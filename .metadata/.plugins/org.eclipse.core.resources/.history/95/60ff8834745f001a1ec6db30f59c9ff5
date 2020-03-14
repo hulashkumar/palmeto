@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class CinemaTicket{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the no of ticket:");
+        int n=sc.nextInt();
+        System.out.println("Do you want refreshment:");
+        char refreshment=sc.nextChar();
+        System.out.println("Do you have coupon code:");
+        char coupon=sc.nextChar();
+        System.out.println("Enter the circle:");
+        char circle=sc.nextChar();
+        
+        double cost;
+        if(n>=5 && n<=40){
+            if(ch)
+        }
+        else{
+            System.out.println("Invalid Input");
+        }
+        System.out.println("Do you want refreshment:");
+    }
+}

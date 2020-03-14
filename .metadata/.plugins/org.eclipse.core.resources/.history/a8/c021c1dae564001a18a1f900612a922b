@@ -1,0 +1,9 @@
+package Example;
+
+public class HelloWorld {
+	public String message1() {
+		
+		return null;
+		
+	}
+}

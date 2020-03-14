@@ -1,0 +1,25 @@
+package iostream;
+
+import java.io.FileReader;
+import java.io.FileWriter;
+
+public class FileWrite {
+
+	public static void main(String[] args) throws FileNotFindExeption,IOException{
+		// TODO Auto-generated method stub
+		char c;
+		int x;
+		try(FileReader fin=new FileReader("d://fileresult.txt");
+				FileWriter fout=new FileWriter("d://file.txt"))
+		{
+			x.fin.read();
+			while(x!=-1) {
+				ch=(char)i;
+				fout.write(ch);
+				System.out.println(ch);
+				x=fin.read();
+			}
+		}
+	}
+
+}

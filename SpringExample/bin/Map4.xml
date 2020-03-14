@@ -1,0 +1,23 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+    <bean id = "Q" class = "Assessment.Map4">
+    <constructor-arg value="22"></constructor-arg>
+    <constructor-arg value="What is Java"></constructor-arg>
+    <constructor-arg >
+    <map>
+    <entry key="Java is oops concept" value="Ajay kumar"></entry>
+    <entry key="Java is a platform Independent" value="Swaroop"></entry>
+    <entry key="Java has Exception handling" value="Chhota chetan"></entry>
+    </map>
+    </constructor-arg>
+     
+   </bean>
+   
+
+</beans>

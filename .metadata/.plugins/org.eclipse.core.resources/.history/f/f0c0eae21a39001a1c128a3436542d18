@@ -1,0 +1,9 @@
+package friday10jan;
+
+public class NumberFormatException {
+
+	public NumberFormatException() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

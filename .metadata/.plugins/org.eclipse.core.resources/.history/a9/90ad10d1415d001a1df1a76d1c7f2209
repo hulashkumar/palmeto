@@ -1,0 +1,24 @@
+package utilities;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.sql.Connection;
+import java.util.Properties;
+public class DBHandler {
+public static Connection esatblishConnection() throws IOException {
+	Connection con=null;
+	FileInputStream fis=new FileInputStream("d://db.properties"); 
+	Properties properties=new Properties(); 
+	properties.load(fis);
+	try {
+		String dname=(String) properties.get("dname");
+		String url=(String) properties.get("url");
+		String uname=(String) properties.get("uname");
+		String password=(String) properties.get("pwd");
+		
+	}
+	catch() {}
+	return null;
+	
+}
+}

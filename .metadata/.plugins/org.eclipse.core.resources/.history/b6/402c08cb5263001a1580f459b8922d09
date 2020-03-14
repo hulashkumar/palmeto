@@ -1,0 +1,7 @@
+package unittesting;
+
+public class JunitTest1 {
+	public void test1() {
+		System.out.println("This is test 1");
+	}
+}

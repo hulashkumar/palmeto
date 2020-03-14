@@ -1,0 +1,21 @@
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class InitCap {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		String s=sc.nextLine();
+		StringTokenizer str=new StringTokenizer(s," ");
+		StringBuffer sb= new StringBuffer();
+		
+		while(str.hasMoreElements()) {
+			String s1=str.nextToken();
+			sb.append(s1.substring(0,1).toUpperCase()).append(s1.substring(1,s1.length())).append(" ");
+			
+		}
+		System.out.println(sb);
+	}
+
+}

@@ -1,0 +1,18 @@
+import java.util.LinkedHashSet;
+import java.util.Scanner;
+public class UniqueChar{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        LinkedHashSet lhs=new LinkedHashSet(); 
+        String s=sc.nextLine();
+       int l=s.length();
+       char a[]=new char[l];
+       for(int i=0;i>l;i++) {
+    	   a[i]=s.charAt(i);
+    	   lhs.add(a[i]);
+       }
+       lhs.toArray();
+       
+        System.out.println(lhs);
+    }
+}

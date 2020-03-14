@@ -1,0 +1,27 @@
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+public class Authority1{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        StringBuffer sb=new StringBuffer();
+        System.out.println("Inmate's name:");
+        String s1=sc.nextLine();
+        System.out.println("Inmate's father's name:");
+        String s2=sc.nextLine();
+        Pattern p = Pattern.compile("[a-zA-Z]+");
+        Matcher m1 = p.matcher(s1); 
+        Matcher m2 = p.matcher(s2);
+        while (m1.find()){
+        	String s=m1.group().toUpperCase(); 
+        	sb.append(s).append(" ");
+        }
+        while (m2.find()){
+        	String s=m2.group().toUpperCase(); 
+        	sb.append(s);
+        }
+        System.out.println(sb.toString());
+        
+        
+    }
+}

@@ -1,0 +1,20 @@
+import java.util.Scanner;
+public class Test{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        double sum=0,avg;
+        System.out.println("Enter total no.of employees:");
+        int n=sc.nextInt();
+        System.out.println("Enter the age for "+n+" employees:");
+        int a[]=new int[n];
+        for(int i=0;i<n;i++){
+            a[i]=sc.nextInt();
+            sum=sum+a[i];
+        }
+        avg=sum/n;
+        System.out.printf("The average age is %.2f",avg);;
+        //"Ticket cost: %.2f\n", cost
+        //("The average age is "+avg);
+        
+    }
+}

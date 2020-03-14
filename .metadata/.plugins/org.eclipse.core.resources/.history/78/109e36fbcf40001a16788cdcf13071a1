@@ -1,0 +1,18 @@
+package jdbc;
+import java.sql.*;
+
+public class insertData {
+
+	public static void main(String[] args) throws SQLException {
+		// TODO Auto-generated method stub
+		DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+		Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/cts","root","root");
+		Statement statement=connection.createStatement();
+		String query="insert into customers values(1002,'praveen','platinum',34)";
+		int count =statement.executeUpdate(query);
+		System.out.println(count+"Records inserted....");
+		statement.close();
+		connection.close();
+	}
+
+}

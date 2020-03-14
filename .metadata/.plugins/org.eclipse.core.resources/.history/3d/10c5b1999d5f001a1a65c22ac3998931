@@ -1,0 +1,32 @@
+import java.util.Scanner;
+public class IncrementCalculation{
+    public static void main(String []args){
+        double sum=0;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the salary");
+        double s=sc.nextDouble();
+        System.out.println("Enter the Performance appraisal rating");
+        double r=sc.nextDouble();
+        if(s>0 && r>=1 && r<=5)
+        {
+            if(r>1 && r<=3)
+            {
+                sum=s*110;
+                System.out.println(sum);
+            }
+            else if(r>=3.1 && r<=4)
+            {
+                sum=s*125;
+                System.out.println(sum);
+            }
+            else
+            {
+                sum=s*130;
+                System.out.println(sum);
+            }
+        }
+        else{
+            System.out.println("Invalid Input");
+            }
+    }
+}

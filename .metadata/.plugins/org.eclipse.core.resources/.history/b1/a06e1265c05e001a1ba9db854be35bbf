@@ -1,0 +1,10 @@
+package regex;
+
+import java.util.regex.Pattern;
+
+public class UserMainCode3 {
+	public static void validate(String s) {
+		String
+		System.out.println(Pattern.matches("((?=.*d)(?=.*[@#$])(?=.*[a-z])).{6,20}",s));	
+	}
+}

@@ -1,0 +1,16 @@
+import java.util.Scanner;
+public class Authority{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Inmate's name:");
+        String s1=sc.nextLine();
+        System.out.println("Inmate's father's name:");
+        String s2=sc.nextLine();
+        if((s1.matches("^[a-zA-Z]*$")) && (s2.matches("^[a-zA-Z]*$")))
+        {
+        System.out.println(s1.concat(" ").concat(s2));
+        }
+        else
+        	System.out.println("Invalid name");
+    }
+}

@@ -1,0 +1,24 @@
+import java.util.Scanner;
+public class Authority{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Inmate's name:");
+        String s1=sc.nextLine();
+        System.out.println("Inmate's father's name:");
+        String s2=sc.nextLine();
+        int i,n=0,cnt=0;
+        for(i=0;i<s1.length();i++){
+            char c = s1.charAt(i);
+            if(c=='0'||c=='1'||c=='2'||c=='3'||c=='4'||c=='5'||c=='6'||c=='7'||c=='8'||c=='9'){
+              
+                break;
+            }
+            else {
+                cnt++;
+            }
+        }
+       
+        System.out.println(s1.concat(" ").concat(s2));
+        
+    }
+}

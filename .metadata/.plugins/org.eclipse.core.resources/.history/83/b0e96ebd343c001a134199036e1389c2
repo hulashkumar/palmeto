@@ -1,0 +1,27 @@
+package Collection;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class ArrayListColor {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ArrayList a=new ArrayList();
+		a.add("Blue");
+		a.add("Red");
+		a.add("Yellow");
+		a.add("Orange");
+		System.out.println(a);
+		/*Iterator itr=a.iterator();
+		while(itr.hasNext())
+			System.out.println(itr.next());*/
+		a.add(0,"green");
+		System.out.println(a);
+		System.out.println(a.get(2));
+		a.set(2,"voilet");
+		System.out.println(a);
+		a.remove(4);
+	}
+
+}

@@ -1,0 +1,9 @@
+package friday10jan;
+
+public class ArrayIndexOutOfBoundsException {
+
+	public ArrayIndexOutOfBoundsException() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

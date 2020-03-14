@@ -1,0 +1,19 @@
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class seperatedBy$ {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		String s=sc.nextLine();
+		StringBuffer sb= new StringBuffer();
+		StringTokenizer stk=new StringTokenizer(s," "); 
+		while(stk.hasMoreTokens())
+		{
+			System.out.println(stk);
+		}
+		
+	}
+
+}

@@ -1,0 +1,14 @@
+package Example;
+
+import org.junit.Test;
+
+public class JunitTest2 {
+	@Test
+	public void test1() {
+		System.out.println("This is test 1 of JunitTest2");
+		
+	}@Test
+	public void test2() {
+		System.out.println("This is test 2 of junitTest2");
+	}
+}

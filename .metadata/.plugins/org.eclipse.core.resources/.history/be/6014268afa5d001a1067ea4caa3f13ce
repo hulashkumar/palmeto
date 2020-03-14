@@ -1,0 +1,25 @@
+package ctsproject;
+
+import java.sql.Connection;
+import java.util.List;
+
+import utilities.DBHandler;
+	
+public class TravelAgency {
+	Connection connection;
+	List<Package> findPackagesWithMinimumNumberOfDays(){
+		return null;
+	}
+	boolean validate(String packageId) {
+		return false;
+	}
+	List<Package>generatePackageCost(String filePath){
+		int discount=0;
+		try {
+			connection=DBHandler.establishConnection();
+		}
+		catch() {}
+		return null;	
+	}
+	
+}

@@ -1,0 +1,25 @@
+package jdbc;
+import java.sql.*;
+
+public class insertData {
+
+	public static void main(String[] args) throws SQLException {
+		// TODO Auto-generated method stub
+		DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+		Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/cts","root","root");
+		Statement statement=connection.createStatement();
+		String query="insert into customers values"+"(1004,'hulash','master',21),(1005,'reddy','master',22)";
+		//String query="update customers set age=35 where id=1002";
+		//String query="delete from customers where id=1002";
+		//int count =statement.executeUpdate(query);
+		boolean flag=statement.execute(query);
+		if(flag) {
+			System.out.println("resultSet is returned");
+		}
+		else {
+		System.out.println("Records inserted....");}
+		statement.close();
+		connection.close();
+	}
+
+}

@@ -1,0 +1,14 @@
+package Collection;
+import java.util.*;
+public class MapEx {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		HashMap hm=new HashMap();
+		hm.put("k1","India");
+		hm.put("k2","Japan");
+		hm.put("k3","Sweden");
+		hm.put("k4","China");
+	}
+
+}

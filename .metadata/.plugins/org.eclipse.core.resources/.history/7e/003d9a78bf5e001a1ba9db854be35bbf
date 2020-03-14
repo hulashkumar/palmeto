@@ -1,0 +1,7 @@
+package regex;
+
+public class UserMainCode3 {
+	public static void validate(String s) {
+		
+	}
+}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+Empno<input type="text" name="Empno"/>
+Ename<input type="text" name="Ename"/>
+Job<input type="text" name="Job"/>
+Manager<input type="text" name="Manager"/>
+HireDate<input type="text" name="Empno"/>
+Salary<input type="text" name="Empno"/>
+Commission<input type="text" name="Empno"/>
+Department<input type="text" name="Empno"/>
+</body>
+</html>

@@ -1,0 +1,22 @@
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+public class Authority{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Inmate's name:");
+        String s1=sc.nextLine();
+        System.out.println("Inmate's father's name:");
+        String s2=sc.nextLine();
+        Pattern p = Pattern.compile("[a-zA-Z]+");
+        Matcher m1 = p.matcher(s1); 
+        Matcher m2 = p.matcher(s2);
+        while (m1.find()){
+        	System.out.println(m1.group());
+        }
+        while (m2.find()){
+        	System.out.println(m2.group());
+        }
+        
+    }
+}

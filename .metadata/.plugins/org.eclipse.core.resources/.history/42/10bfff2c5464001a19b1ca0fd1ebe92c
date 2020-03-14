@@ -1,0 +1,18 @@
+package testsrc;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import unittesting.StringHelper;
+
+class StringHelperTest {
+
+	@Test
+	void test() {
+		//fail("Not yet implemented");
+		StringHelper sh=new StringHelper();
+		AssertEquals("CD",sh.truncateAInFirst2Positions("AACD"));
+	}
+
+}

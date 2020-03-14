@@ -1,0 +1,13 @@
+package Example;
+
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+
+@RunWith(Categories.class)
+@Categories.IncludeCategory(RegressionTest.class)
+@Suite.SuiteClasses({JuniTest1.class,JuniTest2.class}
+	
+)
+public class JunitTestSuit {
+	
+}

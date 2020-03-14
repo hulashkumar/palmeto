@@ -1,0 +1,9 @@
+package Example;
+
+public class HelloWorld {
+	rivate static final String Message1="Message1" {
+		
+		return message;
+		
+	}
+}

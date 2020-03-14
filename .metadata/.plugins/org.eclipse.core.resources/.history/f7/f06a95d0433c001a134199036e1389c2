@@ -1,0 +1,43 @@
+package Collection;
+
+import java.util.HashSet;
+class Employee implements Comparable<Employee>{
+	@Override
+	public String toString() {
+		return "Employee [name=" + name + ", emid=" + emid + "]";
+	}
+	public Employee(String name, String emid) {
+		super();
+		this.name = name;
+		this.emid = emid;
+	}
+	String name;
+	String emid;
+	public int compareTo(Employee emp) {
+		if(name.compareTo(emp.name)<0)
+			return -1;
+		else if(name.compareTo(emp.name)>0)
+			return -1;
+		else
+			return 0;
+	}
+}
+public class SetExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		HashSet hs=new HashSet();
+		hs.add("India");
+		hs.add("China");
+		hs.add("Japan");
+		hs.add("Sweden");
+		hs.add("India");
+		System.out.println(hs);
+		HashSet hs1=new HashSet();
+		hs1.add(new Employee("Hulash","0003"));
+		hs1.add(new Employee("Kumar","0002"));
+		hs1.add(new Employee("Name","0001"));
+		hs1.forEach(System.out::println);
+	}
+
+}

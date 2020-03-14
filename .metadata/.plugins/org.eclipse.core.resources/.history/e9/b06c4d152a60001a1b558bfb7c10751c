@@ -1,0 +1,26 @@
+import java.util.Scanner;
+public class BikeRace{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        String n=sc.next();
+        
+        int p1=1,p2=1;
+        for(int i=1;i<=n.length();i++){
+        	if(i%2==0) {
+        		int x=n.charAt(i);
+        		p1=p1*x;
+        	}else {
+        		int y=n.charAt(i);
+        		p2=p2*y;
+        	}
+        }
+        int b;
+        if(p1>p2) {
+        	b=p1;
+        }else {
+        	b=p2;
+        }
+          System.out.println(b);  
+        
+    }
+}

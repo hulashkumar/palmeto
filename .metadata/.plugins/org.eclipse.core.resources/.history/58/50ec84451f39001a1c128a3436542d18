@@ -1,0 +1,17 @@
+package friday10jan;
+
+public class TestNumber {
+
+	public TestNumber() {
+		// TODO Auto-generated constructor stub
+		public void testString(String s) throws NumberFormatExceptin{
+			int i=Integer.parseInt(s);
+			if(i) {
+				System.out.println("Entered number is valid");}
+				else
+					throw new NumberFormatExceptin();
+
+		}
+	}
+
+}

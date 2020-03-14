@@ -1,0 +1,8 @@
+package Example;
+
+public class TestMessages {
+	public void test1() {
+		HelloWorld hw=new HelloWorld();
+		assertEquals("Message1",hw.message1());
+	}
+}

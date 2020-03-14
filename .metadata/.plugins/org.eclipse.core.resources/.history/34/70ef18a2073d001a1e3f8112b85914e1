@@ -1,0 +1,22 @@
+package Collection;
+import java.util.*;
+public class DqueueExmple {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		PriorityQueue d=new PriorityQueue();
+d.add(10);
+d.add(20);
+d.add(30);
+d.add(40);
+d.add(-2);
+d.add("India");
+System.out.println(d);
+d.remove();
+System.out.println("after removal");
+System.out.println(d);
+d.add(-8);
+System.out.println(d);;
+	}
+
+}

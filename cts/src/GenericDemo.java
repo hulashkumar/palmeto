@@ -1,0 +1,28 @@
+
+public class GenericDemo<A,B> {
+	A a;
+	B b;
+	public GenericDemo(A obj1,B obj2) {
+		a=obj1;
+		b=obj2;
+	}
+	public void display() {
+		System.out.println(a+","+b);
+	}
+	public A reta() {
+		return(a);
+	}
+	public B retb() {
+		return(b);
+	}
+	public static void main(String []args) {
+		GenericDemo<Integer,Double>obj=new GenericDemo<Integer,Double>(11,33.60);
+		int x=(int)obj.reta();
+		double y=(double)obj.retb();
+		double z=x*y;
+		System.out.println("Multiply   "+z);
+		GenericDemo<String,Character> obj1=new GenericDemo<String,Character>("Hello",'I');
+		obj1.display();
+	}
+
+}

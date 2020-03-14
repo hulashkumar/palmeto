@@ -1,0 +1,17 @@
+package Collection;
+
+import java.util.ArrayList;
+
+public class ArrayListColor {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ArrayList a=new ArrayList();
+		a.add("Blue");
+		a.add("Red");
+		a.add("Yellow");
+		a.add("Orange");
+		System.out.println(a);
+	}
+
+}

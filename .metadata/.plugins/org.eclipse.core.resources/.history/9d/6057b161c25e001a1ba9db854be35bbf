@@ -1,0 +1,10 @@
+package regex;
+
+import java.util.regex.Pattern;
+
+public class UserMainCode4 {
+	public static void validate(String s) {
+		String s1="(?=.*[PRO,FIN,Test]{1})(?=.*[a-zA-Z]{4})(?=.*[0-9]{3})";
+		System.out.println(Pattern.matches(s1,s));
+	}
+}

@@ -1,0 +1,33 @@
+import java.util.Scanner;
+public class CinemaTicket{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the no of ticket:");
+        int n=sc.nextInt();
+        System.out.println("Do you want refreshment:");
+        String a=sc.next();
+        System.out.println("Do you have coupon code:");
+        String b=sc.next();
+        System.out.println("Enter the circle:");
+        String c=sc.next();
+        
+        double cost,discount,coupon,ref;
+        if(n>=5 && n<=40){
+            if(a.equals("k")) { 
+            	cost=n*75;
+            	discount=cost*.90;
+            	coupon=discount*.98;
+            	ref=coupon+n*50;
+            }
+            else {
+            	cost=n*150;
+            	discount=cost*.90;
+            	coupon=discount*.98;
+            	ref=coupon+n*50;
+            }
+        }
+        else{
+            System.out.println("Invalid Input");
+        }
+    }
+}

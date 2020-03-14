@@ -1,0 +1,13 @@
+import java.util.*;
+interface Drawing{
+	public int add(int a,int b);
+}
+public class TestInterface {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Drawing add=(a,b)->a+b;
+		System.out.println("the addition is:"+Math.addExact(10, 20));
+	}
+
+}

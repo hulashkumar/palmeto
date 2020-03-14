@@ -1,0 +1,17 @@
+package regex;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sb=new Scanner(System.in);
+		String s=sb.next();
+		if(s.length()>6 && s.length()<20) {
+			boolean flag=s.matches("[0-9]{1}[@#$]{1}");
+			System.out.println(flag);
+		}
+	}
+
+}

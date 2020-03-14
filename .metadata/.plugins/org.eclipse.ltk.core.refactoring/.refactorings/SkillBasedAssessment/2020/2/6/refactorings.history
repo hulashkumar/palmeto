@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;performSetOperations&apos; to &apos;UserMainCode&apos;&#x0D;&#x0A;- Original project: &apos;SkillBasedAssessment&apos;&#x0D;&#x0A;- Original element: &apos;performSetOperations&apos;&#x0D;&#x0A;- Renamed element: &apos;UserMainCode&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;performSetOperations&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{performSetOperations.java[performSetOperations" matchStrategy="1" name="UserMainCode" qualified="false" references="true" similarDeclarations="false" stamp="1581140664167" textual="false" version="1.0"/>
+</session>
