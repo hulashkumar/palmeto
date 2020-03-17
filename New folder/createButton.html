@@ -1,0 +1,18 @@
+<html>
+<head>
+
+<title>DOM</title>
+<script>
+	function createButton(){
+		var btn=document.createElement("button");
+		var txt=document.createTextNode("Create Button")
+		btn.appendChild(txt);
+		document.body.appendChild(btn);
+}
+</script>
+</head>
+<body>
+
+<input type="submit" value="create" onclick="createButton()"/>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<head>
+<style>
+div{
+	width:40px;
+	height:40px;
+		
+}
+@keyframe design
+	{
+	0% {background-color:red;left:0px;top:0px;}
+	25% {background-color:yellow;left:300px;top:0px;}
+	50% {background-color:blue;left:300px;top:300px;}
+	75% {background-color:orange;left:300px;top:0px;}
+	}
+</style>
+</head>
+<body>
+<div></div>
+</body>
+</html>

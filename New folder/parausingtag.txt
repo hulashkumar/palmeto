@@ -1,0 +1,19 @@
+<html>
+<head>
+
+<title>DOM</title>
+<script>
+	function changeColor(){
+		var string=document.getElementsByTagName("p");
+		array[0].style.color="yellow";
+		array[1].style.color="green";
+}
+</script>
+</head>
+<body>
+
+<p style="color:blue" >This is first</p>
+<p style="color:red" >This is second</p>
+<input type="submit" value="Create" onclick="chaneColor()" />
+</body>
+</html>

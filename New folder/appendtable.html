@@ -1,0 +1,33 @@
+<html>
+<head>
+<style>
+	table,td{border:1px solid black;}
+</style>
+</head>
+<body>
+<table>
+<tr><td>enter your employeeid</td><td><input type="text" id="no"/></td></tr>
+<tr><td>enter your employee name</td><td><input type="text" id="nm"/></td></tr>
+<tr><td>enter your employee designation</td><td><input type="text" id="role"/></td></tr>
+</table>
+<button onClick="myFunction()">submit</button>
+<table id="myTable"></table>
+<br>
+<script>
+var table=document.getElementById("myTable");
+function myFunction(){
+	var row=document.createElement("tr")
+	var cell1=document.createElement("td")
+	var cell2=document.createElement("td")
+	var cell3=document.createElement("td")
+	cell1.innerHTML=document.getElementById("no").value;
+	cell2.innerHTML=document.getElementById("nm").value;
+	cell3.innerHTML=document.getElementById("role").value;
+	row.appendChild(cell1);
+	row.appendChild(cell2);
+	row.appendChild(cell3);
+	table.appendChild(row);
+}
+</script>
+</body>
+</html>

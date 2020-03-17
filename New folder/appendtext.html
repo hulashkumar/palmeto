@@ -1,0 +1,23 @@
+<html>
+<head>
+
+<title>DOM</title>
+<script>
+	var parent=document.createElement("ol");
+	function createTable(){
+		
+		var child1=document.createElement("li");
+		var v1=document.getElementById("data").value;
+		var data=document.createTextNode(v1);
+
+		child1.appendChild(data);
+		parent.appendChild(child1);
+		document.body.appendChild(parent);
+}
+</script>
+</head>
+<body>
+enter your value<input type="text" id="data" >
+<button onclick="createTable()">Create</button>
+</body>
+</html>

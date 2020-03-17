@@ -1,0 +1,262 @@
+UserDao.java
+--------------
+package dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import dto.Accounts;
+import dto.User;
+
+public class UserDao {
+	
+
+	 	private static String jdbcURL;
+	    private static String jdbcUsername;
+	    private static String jdbcPassword;
+	    private static Connection jdbcConnection;
+	     
+	    public UserDao(String jdbcURL, String jdbcUsername, String jdbcPassword) {
+	        this.jdbcURL = jdbcURL;
+	        this.jdbcUsername = jdbcUsername;
+	        this.jdbcPassword = jdbcPassword;
+	    }
+	     
+	    public static void connect() throws SQLException {
+	        if (jdbcConnection == null || jdbcConnection.isClosed()) {
+	            try {
+	                Class.forName("com.mysql.jdbc.Driver");
+	            } catch (ClassNotFoundException e) {
+	                throw new SQLException(e);
+	            }
+	            jdbcConnection = DriverManager.getConnection(
+	                                        jdbcURL, jdbcUsername, jdbcPassword);
+	        }
+	    }
+	     
+	    public void disconnect() throws SQLException {
+	        if (jdbcConnection != null && !jdbcConnection.isClosed()) {
+	            jdbcConnection.close();
+	        }
+	    }
+	    public static void createCustomer(Accounts account,User user) throws SQLException {
+	    	connect();
+	    	String sql1 = "insert into users values(?,?)";
+	    	String sql2 = "insert into Accounts values (?,?,?,?)";
+	    	PreparedStatement pst1 = jdbcConnection.prepareStatement(sql1);
+	    	PreparedStatement pst2 = jdbcConnection.prepareStatement(sql2);
+	    	pst1.setString(1, user.getUname());
+	    	pst1.setString(2, user.getPasswd());
+	    	pst1.executeUpdate();
+	    	pst2.setString(1, account.getAccountNumber());
+	    	pst2.setString(2, account.getAccountType());
+	    	pst2.setString(3, account.getCustomername());
+	    	pst2.setFloat(4, account.getBalnace());
+	    	pst2.executeUpdate();
+	    	
+	    	
+	    }
+	     
+	    public int checkUser(User user) throws SQLException {
+	          String sql = "SELECT * FROM users";
+	          int flag=0;
+	         connect();
+	         Statement statement = jdbcConnection.createStatement();
+	         ResultSet resultSet = statement.executeQuery(sql);
+	         while(resultSet.next()){
+	        	 String temp1 = resultSet.getString("uname");
+	        	 String temp2 = resultSet.getString("passwd");
+	        	 if(temp1.equals(user.getUname() ) &&
+	        			 temp2.equals(user.getPasswd())){
+	        		 flag=1;
+	        		 break;
+	        	 }
+	        	 
+	         }
+	         
+	         resultSet.close();
+	         statement.close();
+	              	 	
+	    	return flag;
+	    	
+	    }
+	}
+--------------------------------------------------------------------------------
+Accounts.java
+
+package dto;
+
+public class Accounts {
+	String accountNumber;
+	String accountType;
+	String customername;
+	float balnace;
+	public Accounts(String accountNumber, String accountType, String customername, float balnace) {
+		super();
+		this.accountNumber = accountNumber;
+		this.accountType = accountType;
+		this.customername = customername;
+		this.balnace = balnace;
+	}
+	@Override
+	public String toString() {
+		return "Accounts [accountNumber=" + accountNumber + ", accountType=" + accountType + ", customername="
+				+ customername + ", balnace=" + balnace + "]";
+	}
+	public String getAccountNumber() {
+		return accountNumber;
+	}
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+	public String getAccountType() {
+		return accountType;
+	}
+	public void setAccountType(String accountType) {
+		this.accountType = accountType;
+	}
+	public String getCustomername() {
+		return customername;
+	}
+	public void setCustomername(String customername) {
+		this.customername = customername;
+	}
+	public float getBalnace() {
+		return balnace;
+	}
+	public void setBalnace(float balnace) {
+		this.balnace = balnace;
+	}
+	
+
+}
+----------------------------------------------------------------------------------
+User.java
+----------
+package dto;
+
+public class User {
+	String uname;
+	String passwd;
+	public User(String uname, String passwd) {
+		super();
+		this.uname = uname;
+		this.passwd = passwd;
+	}
+	public String getUname() {
+		return uname;
+	}
+	public void setUname(String uname) {
+		this.uname = uname;
+	}
+	public String getPasswd() {
+		return passwd;
+	}
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
+	}
+	@Override
+	public String toString() {
+		return "User [uname=" + uname + ", passwd=" + passwd + "]";
+	}
+	
+
+}
+
+--------------------------------------------------------
+DisplayMenu.java
+-----------------
+package mains;
+
+import java.sql.SQLException;
+import java.util.Scanner;
+
+import dao.UserDao;
+import dto.Accounts;
+import dto.User;
+
+public class DisplayMenu {
+	public static void existingUser() throws SQLException {
+		UserDao userdao = new UserDao("jdbc:mysql://localhost:3306/cts","root","root");
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Bank Customer Application");
+		System.out.println("Enter User name");
+		String uname = sc.next();
+		System.out.println("Enter password");
+		String pwd = sc.next();
+		User user = new User(uname,pwd);
+		int status = userdao.checkUser(user);
+		if(status==1)
+			
+			System.out.println("Valid User...");
+		else
+			System.out.println("Invalid user...");
+		
+		userdao.disconnect();
+		
+	}
+	public static void newUser() throws SQLException {
+		UserDao userdao = new UserDao("jdbc:mysql://localhost:3306/cts","root","root");
+		Scanner sc = new Scanner(System.in);
+		System.out.println("you have to register first...");
+		System.out.println("Enter username");
+		String uname = sc.next();
+		System.out.println("Enter password");
+		String pwd = sc.next();
+		User user = new User(uname,pwd);
+		System.out.println("Enter AccountNumber");
+		String acctNumber = sc.next();
+		System.out.println("Enter AccountType");
+		String acctType = sc.next();
+		System.out.println("Enter Customer Name");
+		String custName = sc.next();
+		System.out.println("Enter the amount");
+		float balance = sc.nextFloat();
+		Accounts accounts = new Accounts(acctNumber,acctType,custName,balance);
+		UserDao.createCustomer(accounts, user);
+		
+	}
+	public void showMenuOptions() throws SQLException {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("***************Bank Application ************");
+		System.out.println("1.New User...");
+		System.out.println("2.Existing User...");
+		System.out.println("Enter your choice...");
+		int choice= sc.nextInt();
+		switch(choice) {
+		case 1: newUser();break;
+		case 2: existingUser();break;
+		default: System.out.println("Wrong Choice...");
+		}
+		
+	}
+
+}
+------------------------------------------------------------
+
+TestUser.java
+----------------
+package mains;
+
+import java.sql.SQLException;
+import java.util.Scanner;
+
+import dao.UserDao;
+import dto.User;
+
+public class TestUser {
+
+	public static void main(String[] args) throws SQLException {
+		// TODO Auto-generated method stub
+		
+		DisplayMenu display = new DisplayMenu();
+		display.showMenuOptions();
+	}
+
+}

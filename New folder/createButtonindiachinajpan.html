@@ -1,0 +1,32 @@
+<html>
+<head>
+
+<title>DOM</title>
+<script>
+	function createList(){
+		var x=document.createElement("ol");
+		
+		var y1=document.createElement("li");
+		var list1=document.createTextNode("india");
+		y1.appendChild(list1);
+		
+		var y2=document.createElement("li");
+		var list2=document.createTextNode("japan");
+		y2.appendChild(list2);
+
+
+		var y3=document.createElement("li");
+		var list3=document.createTextNode("china");
+		y3.appendChild(list3);
+		x.appendChild(list1);
+		x.appendChild(list2);
+		x.appendChild(list3);
+		document.body.appendChild(x);
+}
+</script>
+</head>
+<body>
+
+<button onclick="createList()">Create</button>
+</body>
+</html>

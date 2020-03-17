@@ -1,0 +1,13 @@
+<html>
+<head>
+<script>
+	var n=parseInt(prompt("enter number",0))
+	var i,sum=0;
+	for(i=1;i<=n;i++)
+	{
+		sum=sum+i;
+	}
+	alert("the sum of"+ n + "natural number is" +sum);
+</script>
+</head>
+</html>

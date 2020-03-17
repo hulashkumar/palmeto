@@ -1,0 +1,8 @@
+<html>
+<head>
+</head>
+<body>
+Enter user id<input type="text">
+<input type="submit" onclick="changeTxt()" value="Click"/>
+</body>
+</html>

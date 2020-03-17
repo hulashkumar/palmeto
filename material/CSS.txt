@@ -1,0 +1,735 @@
+Cascading Style Sheets
+-----------------------
+Cascading Style Sheets, fondly referred to as CSS, is a simple design 
+language intended to simplify the process of making web pages presentable.
+
+CSS handles the look and feel part of a web page. Using CSS, you can control
+the color of the text, the style of fonts, the spacing between paragraphs, how
+columns are sized and laid out, what background images or colors are used, as
+well as a variety of other effects.
+
+Advantages of CSS:
+------------------
+
+1. Saves a lot of time.
+
+2. Pages load faster.
+
+3. Easy Maintenance.
+
+4. Superior styles to HTmL
+
+5. Multiple Device Compatibilty
+
+6. Global Web Standards
+
+
+CSS is created and maintained through a group of  people within the 
+W3C called CSS working groups.
+
+
+
+A CSS comprises of style rules that are interpreted by the browser and then
+applied to the corresponding elements in your document.
+
+A style rule is made of three parts:
+
+Selector: 
+---------
+A selector is an HTML tag at which a style will be applied. This
+could be any tag like <h1> or <table> etc.
+
+Property:
+---------
+A property is a type of attribute of HTML tag. Put simply, all the
+HTML attributes are converted into CSS properties. They could
+be color, border, etc.
+
+Value: 
+------
+Values are assigned to properties. For example, color property can
+have the value either red or #F1F1F1 etc.
+
+ <p> ---> selector, color---> property   green -->value
+
+Syntax:
+
+selector
+{
+	property1:value1;
+	property2:value2;
+	property3:value3;
+}
+
+
+p
+{
+	color:green;
+	font-size:3;
+}
+
+
+
+eg. table
+
+	{ 
+		border: 1px solid blue; 
+	}
+
+
+	h1
+	{
+		color:blue; 
+	}
+
+
+Universal Selectors: 
+--------------------
+These selectors matches the property to any element instead of
+		     specific selector.
+
+
+eg. * { color: green; }
+
+
+
+decendent selectors:
+--------------------
+
+If we wish to apply an specific style to any of the decendent element ie, any element lies 
+
+within the given selector.
+
+eg> ul li{
+
+	color: purple;
+
+	}
+
+ol li{
+
+	color: green;
+
+	}
+
+Class selector:
+---------------
+we can define the style rules based on the class attribute of the elements.  All the elements
+having that class  will be formatted according to that defined value.
+
+
+eg. 
+h1{
+color:#ff0000;
+size:30px
+
+}
+
+p{
+color:#ff0000;
+size:30px
+
+}
+
+	.MCIT {
+		color:#ff0000;
+		size:30px
+	}
+
+	.blue{
+		color:#0000ff;
+	}
+
+	<h1 class="MCIT"> THis is new Heading </h1>
+	<p class="MCIT"> THis is another paragraph</p>
+
+	We can apply to these styles to any selectors.
+
+eg> h1.red{
+	   color:#ff0000;
+	}
+
+    h2.blue{
+	  color: #0000ff;
+	}
+
+
+id selectors:
+-------------
+
+We can define style rules based on the id attribute of the elements.  All the elements having
+that id will be formatted as that style.
+
+
+#elem{
+	color: #000000;
+}
+
+<p id="elem" > some text </p>
+<table id="elem"></table>
+
+Child Selector
+--------------
+
+Child selector is similar to the descendent selector, but it will apply those selectors which are
+direct descendents only.
+
+
+Eg> body > p{
+	color:#00ff00;
+    }
+
+	<body>
+		<p> This is in body tag </p>
+		<div>
+			<p> this is in the div tag </p>
+		</div>
+	</body>
+
+
+
+This rule will be applied to paragraph tag only when it is in body tag, but not applied to
+it when it is in the <td> or <div> tags.
+
+
+Attribute Selector:
+------------------
+
+We can also apply styles to HTML elements with particular attributes. The style rule below
+will match all input  elements  having type  attribute with a value of text.
+
+
+eg.
+
+
+	input[type="text"]{
+		color: green;
+		}
+
+<input type="text" />   // greenn color
+<input type="password"/>  // default color
+
+
+The advantage of this type is that we can apply different styles to the same selector.
+
+
+Multiple Style Rules
+--------------------
+
+We may need to apply multiple style rules for a single element. We can define these rules
+
+to combine multiple properties and corresponding values into a single  block as defined in 
+
+the following example.
+
+
+eg> h1{
+	color:#36c;
+	font-weight: normal;
+	letter-spacing: .4em;
+	margin-bottom: 1em;
+	text-transform: lowercase;
+      }
+
+
+Grouping Selectors:
+-------------------
+
+We can apply same style to different selectors at a time.  
+
+
+h1, h2, h3 {
+	color: #36C;
+	font-weight: normal;
+	letter-spacing: .4em;
+	margin-bottom: 1em;
+	text-transform: lowercase;
+}
+
+
+
+
+Different ways to use / implement CSS
+-------------------------------------
+
+
+There are basically 3 ways to handle CSS in a web page.
+
+
+1. Inline
+
+2. Embedded
+
+3. External
+
+The most common ways are either Inline or External.
+
+
+Embedded
+--------
+
+We can embedd the css style rule in the <head> by using <style> tag and define the style,
+then it will apply to the selected selectors in the <body>
+
+
+Sytax:
+
+<head>
+<style type="text/css" media="...">
+Style Rules
+............
+</style>
+</head>
+
+
+attributes:
+-----------
+
+type="text/css"  : Specifies the style sheet language as a
+		   content-type (MIME type). This is a required
+		   attribute.
+
+
+media="all/print/tty/tv/projection/print/handled"  
+
+
+: Specifies the device, the document will be
+  displayed on. Default value is all. This is an
+  optional attribute.
+
+
+
+
+eg>
+
+<html>
+
+<head>
+<style type="text/css" media="all">
+h1{
+color: #36C;
+}
+</style>
+</head>
+<body>
+
+<h1> This heading is defined as per embedded css style</h1>
+
+</body>
+</html>
+
+
+Inline Style
+-------------
+
+This type of the style is applied at the element itself.  This rule is applied to that element
+only.
+
+
+Syntax:
+-------
+
+
+<element style="...style rules....">
+
+
+eg> <h1 style ="color:#36C;"> This is inline CSS </h1>
+
+
+External Style
+--------------
+
+This style will define the properties in the external and file and 
+need to link in the current document.
+
+An external style sheet is a separate text file with .css extension. 
+
+We define all the Style rules within this text file and then you can 
+include this file in any HTML document using <link> element.
+
+Here is the generic syntax of including external CSS file:
+
+<head>
+<link type="text/css" href="..." media="..." />
+</head>
+
+
+
+Attributes:
+-----------
+
+
+type = "text/css"   : Specifies the style sheet language as a content-type
+		      (MIME type). This attribute is required.
+
+
+href=url	    : Specifies the style sheet file having Style rules. This
+	              attribute is a required.
+
+
+
+
+Save the following styles in the file called mystyles.css
+
+
+h1, h2, h3 {
+color: #36C;
+font-weight: normal;
+letter-spacing: .4em;
+margin-bottom: 1em;
+text-transform: lowercase;
+}
+
+
+include this file mystyles.css in any HTML document as follows:
+<head>
+<link type="text/css" href="mystyle.css" media="all" />
+</head>
+
+
+
+import tag:
+-----------
+
+
+@import is used to import an external stylesheet in a manner similar to the
+<link> element. Here is the generic syntax of @import rule.
+
+
+<head>
+<@import "URL";
+</head>
+
+
+Here URL is the URL of the style sheet file having style rules. You can use
+another syntax as well:
+
+<head>
+<@import url("URL");
+</head>
+
+
+
+eg>
+
+
+<head>
+@import "mystyle.css";
+</head>
+
+
+
+CSS order of styling
+--------------------
+
+
+1. Inline
+
+2. Embedded
+
+3. External
+
+
+CSS comments:
+-------------
+
+
+/* This is a comment line    */
+
+
+
+Measuring Units: %, cm, em, pt, px etc., 
+----------------
+
+Colors: can be represented as constant like green, red, blue, yellow etc., 
+or by combination of 6 digit hexadecimal number like #ff6534
+
+
+Backgrounds
+-----------
+background-image:  url_of_image;
+background-color: color;
+background-repeat: repeat-x/repeat-y/no-repeat;
+background-position: left/right top/bottom
+background-attachment: fixed;  // attachment will not scroll with page
+background-attachment: scroll; // will scroll with page...
+
+
+1. background-color - to set the background color of an element.
+ 
+ <p style = "background-color:yellow;">
+
+2. background-image - to set the background image of an element.
+<style>
+         body  {
+            background-image: url("/css/images/css.jpg");
+            background-color: #cccccc;
+         }
+  </style>
+
+3. background-repeat -  Used to control the repetition of an image in the 			        background.
+
+	background-repeat: repeat;
+
+4. background-position - to control the position of an image in the 			  background.
+
+	background-image: url("/css/images/css.jpg");
+            background-position:100px 200px;
+ie., 100px away from left, 200px away from down.
+
+
+
+5. background-attachment - to control the scrolling of an 					  image in the background.
+
+The background property is used as a shorthand to specify a number of other background properties.
+
+Text
+-----
+1. color 	Sets the color of text
+
+2. direction 	Specifies the text direction/writing direction
+
+direction: rtl;
+
+3. letter-spacing 	Increases or decreases the space between 			                characters in a text
+letter-spacing: 3px;
+
+
+4.line-height 	Sets the line height
+line-height: 1.8;
+
+5.text-align 	Specifies the horizontal alignment of text
+
+6.text-decoration 	Specifies the decoration added to text
+
+7.text-indent: 	Specifies the indentation of the first line in a text-		block
+
+8.text-shadow 	Specifies the shadow effect added to text
+text-shadow: 3px 2px red;
+
+9.text-transform 	Controls the capitalization of text
+text-transform: uppercase/lowercase/capitalize;
+
+p{
+	color:blue;
+	text-align:center;
+	text-transform:uppercase;
+}
+<body>
+	<p> this will be show with the properties defined in the style
+	</p>
+</body>
+
+
+10. vertical-align 	Sets the vertical alignment of an element
+
+11. white-space 	Specifies how white-space inside an element is 					handled
+
+12.word-spacing 	Increases or decreases the space between words in 				a text
+word-spacing: 10px;
+
+Font
+-----
+1. font-family 		Specifies the font family for text
+font-family:"Times New Roman" / "Sans Serif" 
+
+2. font-size 		Specifies the font size of text
+font-size:10% / 2.5em 
+
+3. font-style 		Specifies the font style for text
+font-style: normal / italic / oblique
+
+
+4 font-variant 	Specifies whether or not a text should be 			displayed in a small-caps font
+font-variant: small-caps / normal ;
+
+5. font-weight 		Specifies the weight of a font
+font-weight: normal / bold;
+
+
+Links
+------
+
+a:link {color: #000000}
+a:visited {color: green}
+a:hover {color: blue}
+a:active {color: red}
+
+
+Borders
+-------
+Border-Style: dotted/dashed/solid/double/groove/ridge/inset/outset/none/   
+              hidden
+
+Border-width : 5px (all sides), / medium / 2px 10px 4px 10px (right bottom, left , top )
+
+border-color:colorvalue
+
+border-right-style: solid;
+border-bottom-style: dotted;
+border-left-style: solid;
+border-top-style:dotted
+
+Lists
+-----
+list-style-type: circle/square/upper-roman/lower-roman
+list-style-image: url('image.gif');
+list-style-position : outside/inside
+property specifies the position of the list-item markers (bullet points).
+
+Styling with colors
+-------------------
+ol {
+  background: #ff9999;
+  padding: 20px;
+}
+
+ul {
+  background: #3399ff;
+  padding: 20px;
+}
+
+ol li {
+  background: #ffe5e5;
+  padding: 5px;
+  margin-left: 35px;
+}
+
+ul li {
+  background: #cce5ff;
+  margin: 5px;
+}
+
+
+Table Properties
+----------------
+Property			Description
+--------			------------
+1. border			Sets all the border properties in 
+				one declaration
+
+2. border-collapse		Specifies whether or not table borders 
+				should be collapsed
+
+3. border-spacing		Specifies the distance between the 
+				borders of adjacent cells
+
+4. caption-side			Specifies the placement of a table 
+				caption
+
+5. empty-cells			Specifies whether or not to display 
+				borders and background on empty cells 
+				in a table
+
+6. table-layout			Sets the layout algorithm to be used 
+				for a table
+
+ex1>
+table, th, td {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+}
+
+Margins
+-------
+    margin:10px
+    margin-top
+    margin-right
+    margin-bottom
+    margin-left
+
+All the margin properties can have the following values:
+
+Ex
+--
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(odd) {background-color: #f2f2f2;}
+tr:nth-child(even) {background-color: #00f2f2;}
+
+
+</style>
+
+
+ 
+
+Padding
+--------
+
+    padding-top
+    padding-right
+    padding-bottom
+    padding-left
+     padding:
+
+    auto - the browser calculates the margin (only for margin)
+    length - specifies a margin in px, pt, cm, etc.
+    % - specifies a margin in % of the width of the containing element
+    inherit - specifies that the margin should be inherited from the               parent element
+Height/ width
+--------------
+	height:10px;
+	width:20px;
+
+Box Model
+---------
+content is wrapped around padding with borders along with margins.
+
+content--->padding--->Border--->Margin
+
+
+  width: 300px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+
+Background 
+-----------
+
+background-size: auto|length|cover|contain|initial|inherit;
+
+
+
+background-image: url("paper.gif");
+background-color: lightblue;
+background-repeat: repeat-x;
+background-position: left top;
+background-size: 300px 100px; or background-size: auto ;
+ex
+---
+	body {
+  		background-color: lightblue;
+	}
+
+Borders
+-------
+p.dotted {border-style: dotted;}
+p.dashed {border-style: dashed;}
+p.solid {border-style: solid;}
+p.double {border-style: double;}
+p.groove {border-style: groove;}
+p.ridge {border-style: ridge;}
+p.inset {border-style: inset;}
+p.outset {border-style: outset;}
+p.none {border-style: none;}
+p.hidden {border-style: hidden;}
+p.mix {border-style: dotted dashed solid double;}
+
+
+

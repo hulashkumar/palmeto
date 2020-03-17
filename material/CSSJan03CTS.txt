@@ -1,0 +1,82 @@
+CSS Animations
+---------------
+CSS allows animation of HTML elements without using JavaScript.
+The following are CSS Animation properties:
+Property		      Description
+---------		      -----------
+1. @keyframes 		      Specifies the animation code
+
+2. animation 		      A shorthand property for setting all the animation properties
+
+3. animation-delay 	      Specifies a delay for the start of an animation
+
+4. animation-direction 	      Specifies whether an animation should be played forwards, 
+			      backwards or in alternate cycles
+
+5. animation-duration 	      Specifies how long time an animation should take to complete one cycle
+
+6. animation-fill-mode 	      Specifies a style for the element when the animation is not playing (before it starts, after it ends, or both)
+
+7. animation-iteration-count  Specifies the number of times an animation should be played
+
+8. animation-name 	      Specifies the name of the @keyframes animation
+
+9. animation-play-state       Specifies whether the animation is running or paused
+
+10. animation-timing-function Specifies the speed curve of the animation
+
+
+An animation lets an element gradually change from one style to another.
+
+To use CSS animation, you must first specify some keyframes for the animation.
+
+Keyframes hold what styles the element will have at certain times.
+
+@KeyFrames example{
+	from{background-color:blue};
+	to{background-color:red};
+}
+
+div{
+	width:40px;
+	height:90px;
+	background-color:blue;
+	animation-name:example;
+	animaton-duration:3s;
+}
+
+
+We can specify the animation at regular intervals also
+
+@keyframes example {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; top:200px;}
+  75%  {background-color:green; left:0px; top:200px;}
+  100% {background-color:red; left:0px; top:0px;}
+}
+
+To specify how many times the animation has to run:
+
+animation-iteration-count: n; where n represents number of times to run
+animation-iteration-count:infinite; to make it count continous loop
+
+
+To specify animation-direction:
+
+animation-direction: normal / reverse / alternate / alternate-reverse
+normal: As specified
+reverse: from last animation to first
+alternate: normal + reverse
+alternate-reverse : reverse +  normal
+
+
+animation-timing-function property specifies the speed curve of the animation.
+
+ease - Specifies an animation with a slow start, then fast, then end slowly (this is default)
+linear - Specifies an animation with the same speed from start to end
+ease-in - Specifies an animation with a slow start
+ease-out - Specifies an animation with a slow end
+ease-in-out - Specifies an animation with a slow start and end
+cubic-bezier(n,n,n,n) - Lets you define your own values in a cubic-bezier function
+

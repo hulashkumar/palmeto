@@ -1,0 +1,19 @@
+<html>
+<head>
+
+<title>DOM</title>
+<script>
+	function createPara(){
+		var string=document.getElementById("p1").value;
+		var x=document.getElementById("para1");
+		x.style.color=string;
+}
+</script>
+</head>
+<body>
+
+<p id="para1" style="color:red" >This is first</p>
+Enter your color <input type="text" id="p1"/>
+<input type="submit" value="Create" onclick="createPara()" />
+</body>
+</html>

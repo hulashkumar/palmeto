@@ -1,0 +1,21 @@
+<html>
+<head>
+
+<title>DOM</title>
+<script>
+	function createPara(){
+		var string=document.getElementById("p1").value;
+		var text=document.createTextNode("this is my third para");
+		var para=document.createElement("p");
+		var temp=para.appendChild(text);
+		document.body.appendChild(temp)
+}
+</script>
+</head>
+<body>
+<p>This is first</p>
+<p>This is second</p>
+Enter your text <input type="text" id="p1"/>
+<input type="submit" value="Create" onclick="createPara()" />
+</body>
+</html>
