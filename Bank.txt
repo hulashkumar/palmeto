@@ -1,0 +1,9 @@
+select c.firstname,c.customer_city,a.account from customer_master c join account_master a ON a.customer_number=c.customer_number where c.occupation NOT IN ('Business','Service','Student') order by c.firstname,a.account_number;
+select c.customer_number,c.firstname,c.customer_date_of_birth from customer_master c order by year(c.customer_date_of_birth),c.firstname;
+select customer_number,firstname,ifnull(middlename,lastname)Middle_Name from customer_master order by customer_number;
+select a.account_number,c.firstname,c.lastname from customer_master c join account_master a ON c.customer_number=a.customer_number and a.account_status='Active' order by a.account_number;
+select branch_city,count(branch_id)Count_Branch from branch_master order by branch_city;
+select c.customer_number,c.firstname,l.branch_id,l.loan_amount from customer_master c join loan_details l ON c.customer_number=l.customer_number order by c.customer_number,l.branch_id,l.loan_amount;
+select ld.customer_number,c.firstname,c.lastname from customer_master c join loan_details ld ON c.customer_number=ld.customer_number group by c.customer_number having count(ld.branch_id)>=2 AND sum(ld.loan_amount)>=ALL(select sum(ld.loan_amount) from loan_details ld group by ld.customer_number);
+select c.firstname from customer_master c join account_master a ON a.customer_number=c.customer_number group by a.customer_number having count(account_number)>1 order by c.firstname;
+select c.customer_number,c.firstname,t.account_number,count(transaction_number)Count_Trans from customer_master c join account_master a ON c.customer_number=a.customer_number join transaction_details t ON a.account_number=t.account_number group by account_number order by c.customer_number,t.account_number;
