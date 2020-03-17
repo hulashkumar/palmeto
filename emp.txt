@@ -1,0 +1,119 @@
+CREATE  TABLE air_credit_card_details 
+( 
+profile_id VARCHAR(10)  NOT NULL, 
+card_number BIGINT, 
+card_type VARCHAR(45), 
+expiration_month INT, 
+expiration_year INT 
+); 
+
+CREATE  TABLE air_passenger_profile 
+( 
+profile_id VARCHAR(10) NOT NULL , 
+password VARCHAR(45) NULL , 
+first_name VARCHAR(45) NULL , 
+last_name VARCHAR(45) NULL , 
+address VARCHAR(45) NULL , 
+mobile_number BIGINT NULL , 
+email_id VARCHAR(45) NULL  
+);
+
+CREATE  TABLE air_ticket_info 
+( 
+ticket_id VARCHAR(45) NOT NULL , 
+profile_id VARCHAR(10) NULL , 
+flight_id VARCHAR(45) NULL , 
+flight_departure_date DATE NULL , 
+status VARCHAR(45) NULL  
+); 
+  
+CREATE  TABLE air_flight_details 
+( 
+flight_id VARCHAR(45) NOT NULL , 
+flight_departure_date DATE NULL , 
+price DECIMAL(10,2) NULL , 
+available_seats INT NULL  
+); 
+
+
+CREATE  TABLE air_flight  
+( 
+flight_id VARCHAR(45) NOT NULL , 
+airline_id VARCHAR(45) NULL , 
+airline_name VARCHAR(45) NULL , 
+from_location VARCHAR(45) NULL , 
+to_location VARCHAR(45) NULL , 
+departure_time TIME NULL , 
+arrival_time TIME NULL , 
+duration TIME NULL , 
+total_seats INT NULL  
+); 
+ 
+1. Write a query to display the average monthly ticket cost for each flight in ABC  Airlines. 
+The query should display the Flight_Id,From_location,To_Location,Month Name as “Month_Name” and average price as
+ “Average_Price”. Display the records sorted in ascending order based on flight id and then by Month Name. 
+ 
+
+SELECT f.flight_id,f.from_location,f.to_location, 
+monthname(af.flight_departure_date) Month_Name, 
+AVG(price) Average_Price FROM air_flight f JOIN air_flight_details af 
+ON f.flight_id = af.flight_id WHERE f.airline_name = 'abc' 
+GROUP BY f.flight_id,f.from_location,f.to_location,Month_Name  
+ORDER BY f.flight_id, Month_Name; 
+
+
+
+2.Write a query to display the number of flight services between locations in a month. 
+The Query should display From_Location, To_Location, Month as “Month_Name” and number of flight 
+services as “No_of_Services”.  Hint: The Number of Services can be calculated from the number of
+ scheduled departure dates of a flight. The records should be displayed in ascending order based on 
+From_Location and then by To_Location and then by month name.
+
+select f.From_Location,f.To_location,Month(af.flight_departure_date)Month_Name,
+count(af.flight_departure_date)No_of_Services
+from air_flight f JOIN air_flight_details af ON f.flight_id=af.flight_id 
+GROUP BY f.from_location,f.to_location,Month_Name
+Order by  f.from_location,f.to_location,Month_Name;
+
+3.Write a query to display the customer(s) who has/have booked least number of tickets in ABC Airlines. 
+The Query should display profile_id, customer’s first_name, Address and Number of tickets 
+booked as “No_of_Tickets”Display the records sorted in ascending order based on customer's first name.
+
+SELECT ap.profile_id,ap.first_name,ap.address,count(ati.ticket_id) No_of_Tickets FROM 
+air_passenger_profile ap JOIN air_ticket_info ati ON ap.profile_id=ati.profile_id 
+JOIN air_flight af ON af.flight_id=ati.flight_id and af.airline_name='abc' 
+GROUP BY ap.profile_id,ap.first_name,ap.address HAVING count(ati.ticket_id)<=ALL 
+(SELECT count(ticket_id) 
+FROM air_ticket_info GROUP BY profile_id) 
+ORDER BY ap.first_name; 
+
+5. Write a query to display flight id,from location, to location and ticket price of flights 
+whose departure is in the month of april.Display the records sorted in ascending order based on flight id 
+and then by from location. 
+
+select af.flight_id,af.from_location,af.To_location,afd.price from air_flight af join 
+air_flight_details afd ON af.flight_id=afd.flight_id and month(afd.flight_departure_date)='04' 
+ORDER BY af.flight_id,af.from_location;
+
+6. Write a query to display the average cost of the tickets in each flight on all scheduled dates. 
+The query should display flight_id, from_location, to_location and Average price as “Price”.
+ Display the records sorted in ascending order based on flight id and then by from_location and then by to_location. 
+
+select af.flight_id,af.from_location,af.to_location, 
+AVG(afd.price) Price from air_flight af join air_flight_details afd 
+ON afd.flight_id=af.flight_id group by af.flight_id,af.from_location,af.to_location 
+ORDER BY af.flight_id,af.from_location;
+
+
+SELECT af.flight_id,af.from_location,af.to_location,avg(afd.price) Average_Price FROM 
+air_flight af JOIN air_flight_details afd ON af.flight_id=afd.flight_id 
+GROUP BY af.flight_id 
+ORDER BY af.flight_id,af.from_location,af.to_location;
+
+7. Write a query to display the customers who have booked tickets from Chennai to Hyderabad. 
+The query should display profile_id, customer_name (combine first_name & last_name with comma in 
+b/w), address of the customer. Give an alias to the name as customer_name.Hint:
+Query should fetch unique customers irrespective of multiple tickets booked.
+Display the records sorted in ascending order based on profile id.
+
+ 
